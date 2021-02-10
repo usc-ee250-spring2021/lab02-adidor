@@ -38,11 +38,10 @@ if __name__ == '__main__':
     potentiometer = 0
     grovepi.pinMode(potentiometer,"INPUT")
 
-    # Maximum distance threshold to be set with rotary angle sensor
-    maxThreshold = 50
+    # Max distance threshold set with rotary angle sensor
+    maxT = 100
     
-    # Set RGB
-    setRGB(121, 19, 210)
+    
 
     while True:
         #So we do not poll the sensors too quickly which may introduce noise,
@@ -52,19 +51,18 @@ if __name__ == '__main__':
         
         # Read angle  value from potentiometer
         sensor_value = grovepi.analogRead(potentiometer)
-        setThreshold = int(sensor_value*maxThreshold/1024)
+        setT = int(sensor_value*maxThreshold/1024)
         
-        time.sleep(0.1)
+        time.sleep(0.15)
         print (setThreshold)
         print(grovepi.ultrasonicRead(PORT))
         
         # Compare if the threshold set by the rotary angle sensor is less than the
         # distance measured by the ultrasonic sensor
-        if (grovepi.ultrasonicRead(PORT) < setThreshold):
-            lcdText = "{:>3d}".format(setThreshold) + "cm OBJ Pres  \n" + "{:>3d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
-            setText_norefresh(lcdText)
-            setRGB(189, 83, 72)
+        if (grovepi.ultrasonicRead(PORT) < setT):
+            txt = "{:>4d}".format(setT) + "cm OBJ Pres \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+            setText_norefresh(txt)
+ 
         else:
-            lcdText = "{:>3d}".format(setThreshold) + "cm           \n" + "{:>3d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
-            setText_norefresh(lcdText)
-            setRGB(143, 189, 119)
+            txt = "{:>4d}".format(setT) + "cm \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+            setText_norefresh(txt)
