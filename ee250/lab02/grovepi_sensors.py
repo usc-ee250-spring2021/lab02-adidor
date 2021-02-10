@@ -5,8 +5,7 @@ Adrien Dor
 
 Insert Github repository link here.
 """
-git@github.com:usc-ee250-spring2021/lab02-adidor.git
-
+https://github.com/usc-ee250-spring2021/lab02-adidor.git
 """python3 interpreters in Ubuntu (and other linux distros) will look in a 
 default set of directories for modules when a program tries to `import` one. 
 Examples of some default directories are (but not limited to):
