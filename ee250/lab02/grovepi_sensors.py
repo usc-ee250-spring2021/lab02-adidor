@@ -51,7 +51,7 @@ if __name__ == '__main__':
         
         # Read angle  value from potentiometer
         sensor_value = grovepi.analogRead(potentiometer)
-        setT = int(sensor_value*maxThreshold/1024)
+        setT = int(sensor_value*maxT/1024)
         
         time.sleep(0.15)
         print (setThreshold)
