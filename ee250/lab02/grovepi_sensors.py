@@ -60,8 +60,8 @@ if __name__ == '__main__':
         # distance measured by the ultrasonic sensor
         if (grovepi.ultrasonicRead(PORT) < threshold):
             txt = "{:>4d}".format(threshold) + "cm OBJ Pres \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
-            setText(txt)
+            setText_norefresh(txt)
  
         else:
             txt = "{:>4d}".format(threshold) + "cm  \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
-            setText(txt)
+            setText_norefresh(txt)
