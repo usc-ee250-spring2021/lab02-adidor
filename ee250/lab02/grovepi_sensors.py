@@ -37,12 +37,7 @@ if __name__ == '__main__':
     # SIG,NC,VCC,GND
     potentiometer = 0
     grovepi.pinMode(potentiometer,"INPUT")
-
-    # Max distance threshold set with rotary angle sensor
-    maxT = 50
     
-    
-
     while True:
         #So we do not poll the sensors too quickly which may introduce noise,
         #sleep for a reasonable time of 200ms between each iteration.
@@ -54,11 +49,8 @@ if __name__ == '__main__':
         
         print (threshold)
         print(grovepi.ultrasonicRead(PORT))
-        
-        #txt = "{:>4d}".format(threshold) + "cm  \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
-        #setText_norefresh(txt) 
-        # Compare if the threshold set by the rotary angle sensor is less than the
-        # distance measured by the ultrasonic sensor
+         
+        # Compare threshold to ultrasonic sensor
         if (grovepi.ultrasonicRead(PORT) < threshold):
             txt = "{0}cm OBJ Pres \n{1}cm ".format(threshold, grovepi.ultrasonicRead(PORT))
             setText_norefresh(txt)
