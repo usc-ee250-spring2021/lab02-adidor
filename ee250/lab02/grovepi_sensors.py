@@ -65,5 +65,5 @@ if __name__ == '__main__':
             setText_norefresh(txt)
  
         else:
-            txt = "{:>4d}".format(threshold) + "cm  \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+            txt = "{:>4d}".format(threshold) + "cm        \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
             setText_norefresh(txt)
