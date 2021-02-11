@@ -39,7 +39,7 @@ if __name__ == '__main__':
     grovepi.pinMode(potentiometer,"INPUT")
 
     # Max distance threshold set with rotary angle sensor
-    maxT = 100
+    maxT = 50
     
     
 
