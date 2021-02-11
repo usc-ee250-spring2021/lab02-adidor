@@ -54,7 +54,7 @@ if __name__ == '__main__':
         setT = int(sensor_value*maxT/1024)
         
         time.sleep(0.15)
-        print (setThreshold)
+        print (setT)
         print(grovepi.ultrasonicRead(PORT))
         
         # Compare if the threshold set by the rotary angle sensor is less than the
