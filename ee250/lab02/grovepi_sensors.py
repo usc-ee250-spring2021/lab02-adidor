@@ -56,6 +56,8 @@ if __name__ == '__main__':
         print (threshold)
         print(grovepi.ultrasonicRead(PORT))
         
+        txt = "{:>4d}".format(threshold) + "cm  \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+        setText(txt) 
         # Compare if the threshold set by the rotary angle sensor is less than the
         # distance measured by the ultrasonic sensor
         if (grovepi.ultrasonicRead(PORT) < threshold):
