@@ -50,19 +50,18 @@ if __name__ == '__main__':
         
         
         # Read angle  value from potentiometer
-        sensor_value = grovepi.analogRead(potentiometer)
-        setT = int(sensor_value*maxT/1024)
+        threshold = grovepi.analogRead(potentiometer)
         
         time.sleep(0.15)
-        print (setT)
+        print (threshold)
         print(grovepi.ultrasonicRead(PORT))
         
         # Compare if the threshold set by the rotary angle sensor is less than the
         # distance measured by the ultrasonic sensor
-        if (grovepi.ultrasonicRead(PORT) < setT):
-            txt = "{:>4d}".format(setT) + "cm OBJ Pres \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+        if (grovepi.ultrasonicRead(PORT) < threshold):
+            txt = "{:>4d}".format(threshold) + "cm OBJ Pres \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
             setText_norefresh(txt)
  
         else:
-            txt = "{:>4d}".format(setT) + "cm \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
+            txt = "{:>4d}".format(threshold) + "cm  \n" + "{:>4d}".format(grovepi.ultrasonicRead(PORT)) + "cm"
             setText_norefresh(txt)
